@@ -1,20 +1,4 @@
-/*!
 
- =========================================================
- * Light Bootstrap Dashboard React - v1.3.0
- * Based on Light Bootstrap Dashboard - v1.3.0
- =========================================================
-
- * Product Page: http://www.creative-tim.com/product/light-bootstrap-dashboard-react
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-/*      light colors         */
 @keyframes spin {
   from {
     transform: rotate(0deg); }
@@ -200,6 +184,7 @@ input:focus {
   color: #fff;
   font-weight: 200;
   background-size: cover;
+  background-color: #1769ff !important;
   background-position: center center; }
   .sidebar .sidebar-wrapper {
     position: relative;
@@ -207,7 +192,9 @@ input:focus {
     overflow: auto;
     width: 260px;
     z-index: 4;
-    padding-bottom: 30px; }
+    padding-bottom: 30px; 
+    background-color: whitesmoke;
+  }
   .sidebar .sidebar-background {
     position: absolute;
     z-index: 1;
@@ -274,11 +261,14 @@ input:focus {
     .sidebar .nav li.open > a:focus,
     .sidebar .nav li.open > a:hover {
       background: rgba(255, 255, 255, 0.13);
+      background-color: #1769ff !important;
       opacity: 1; }
     .sidebar .nav li.active > a {
       color: #FFFFFF;
       opacity: 1;
-      background: rgba(255, 255, 255, 0.23); }
+      background: rgba(255, 255, 255, 0.23);
+      background-color: #1769ff !important;
+    }
     .sidebar .nav p {
       margin: 0;
       line-height: 30px;

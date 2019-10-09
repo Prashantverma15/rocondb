@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import "./Login.css";
 import {Redirect,withRouter} from 'react-router-dom';
+import AuthenticationService from './AuthenticationService';
 class NewComponent extends Component{
     constructor(props){
         super(props);
@@ -14,6 +15,7 @@ class NewComponent extends Component{
     handlelogin(e){
         e.preventDefault();
         if(this.state.username === 'sahil' && this.state.password=== 'sahil'){
+          AuthenticationService.StoreSession(this.state.username);
             this.props.history.push("/admin/dashboard");
         }
     }

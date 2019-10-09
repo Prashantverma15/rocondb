@@ -207,7 +207,8 @@ input:focus {
     overflow: auto;
     width: 260px;
     z-index: 4;
-    padding-bottom: 30px; }
+    padding-bottom: 30px; 
+  }
   .sidebar .sidebar-background {
     position: absolute;
     z-index: 1;

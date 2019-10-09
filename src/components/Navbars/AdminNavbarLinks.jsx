@@ -1,24 +1,17 @@
-/*!
-
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
 import { NavItem, Nav, NavDropdown, MenuItem } from "react-bootstrap";
-
+import AuthenticationService from '../AuthenticationService';
+import {withRouter} from 'react-router-dom';
 class AdminNavbarLinks extends Component {
+
+  constructor(props){
+    super(props);
+    this.LogOut=this.LogOut.bind(this);
+  }
+  LogOut(){
+    AuthenticationService.RemoveSession();
+    this.props.history.push("/");
+  }
   render() {
     const notification = (
       <div>
@@ -31,7 +24,7 @@ class AdminNavbarLinks extends Component {
     return (
       <div>
         <Nav>
-          <NavItem eventKey={1} href="#">
+          {/* <NavItem eventKey={1} href="#">
             <i className="fa fa-dashboard" />
             <p className="hidden-lg hidden-md">Dashboard</p>
           </NavItem>
@@ -68,8 +61,9 @@ class AdminNavbarLinks extends Component {
             <MenuItem eventKey={2.5}>Something</MenuItem>
             <MenuItem divider />
             <MenuItem eventKey={2.5}>Separated link</MenuItem>
-          </NavDropdown>
-          <NavItem eventKey={3} href="#">
+          </NavDropdown> */}
+          
+          <NavItem eventKey={3} href="#" onClick={this.LogOut} >
             Log out
           </NavItem>
         </Nav>
@@ -78,4 +72,4 @@ class AdminNavbarLinks extends Component {
   }
 }
 
-export default AdminNavbarLinks;
+export default withRouter(AdminNavbarLinks);

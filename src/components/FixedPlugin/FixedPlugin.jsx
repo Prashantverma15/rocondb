@@ -1,21 +1,3 @@
-/*!
-
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-/*eslint-disable*/
 import React, { Component } from "react";
 import Toggle from "react-toggle";
 
@@ -36,18 +18,15 @@ class FixedPlugin extends Component {
   handleClick = () => {
     this.props.handleFixedClick();
   };
-  onChangeClick = () => {
-    this.props.handleHasImage(!this.state.bg_checked);
-    this.setState({ bg_checked: !this.state.bg_checked });
-  };
+  
   render() {
     return (
       <div className="fixed-plugin">
         <div id="fixedPluginClasses" className={this.props.fixedClasses}>
-          <div onClick={this.handleClick}>
+          {/* <div onClick={this.handleClick}>
             <i className="fa fa-cog fa-2x" />
-          </div>
-          <ul className="dropdown-menu">
+          </div> */}
+          {/* <ul className="dropdown-menu">
             <li className="header-title">Configuration</li>
             <li className="adjustments-line">
               <p className="pull-left">Background Image</p>
@@ -210,7 +189,7 @@ class FixedPlugin extends Component {
                 Documentation
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     );
