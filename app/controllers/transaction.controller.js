@@ -21,22 +21,22 @@ exports.create = (req, res) => {
     var balanceCredited
     UserEntity.findOne({"_id": req.body.fromUser}, 
         function(err,userObj) {
-            // if(err) { return res.send(err); }
+            if(err) { return; }
             // console.log(userObj.walletBalance);
             balanceDebited = userObj.walletBalance - req.body.amount;
             UserEntity.findOneAndUpdate({'_id': req.body.fromUser}, { walletBalance: balanceDebited }, 
                 function(err,userObj) {
-                    // if(err) { return res.send(err); }
+                    if(err) { return; }
                 });
         });
     UserEntity.findOne({"_id": req.body.toUser}, 
         function(err,userObj) {
-            // if(err) { return res.send(err); }
+            if(err) { return; }
             // console.log(userObj.walletBalance);
             balanceCredited = userObj.walletBalance + req.body.amount;
             UserEntity.findOneAndUpdate({'_id': req.body.toUser}, { walletBalance: balanceCredited }, 
                 function(err,userObj) {
-                    // if(err) { return res.send(err); }
+                    if(err) { return; }
                 });
         });
 
