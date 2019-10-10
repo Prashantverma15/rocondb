@@ -1,5 +1,6 @@
 module.exports = (app) => {
-	const user = require('../controllers/user.controller.js');
+    const user = require('../controllers/user.controller.js');
+    const transaction = require('../controllers/transaction.controller.js');
 	
 	//USER-API
 	// Create a new User
@@ -16,5 +17,18 @@ module.exports = (app) => {
 	
     // Delete a User
     app.delete('/deleteUser', user.delete);
-	
+    
+    // -------------------------------------------------------------------------------------------
+    
+    // Create new Transaction
+    app.post('/newTransaction', transaction.create);
+
+    // Retrieve all Transactions
+    app.get('/getAllTransactions', transaction.findAll);
+
+    // Retrieve all Transactions of a User
+    app.post('/getTransactions', transaction.findUserTransactions);
+
+    // Delete a Transaction
+    app.delete('/deleteTransaction', transaction.delete);
 }

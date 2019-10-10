@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var userEntity = require('userEntity.js');
+const userEntity = require('./userEntity.model.js');
 
 const TransactionSchema = mongoose.Schema({
     fromUser: [

@@ -60,6 +60,6 @@ exports.update = (req, res) => {
 
 // Delete a User
 exports.delete = (req, res) => {
-    UserEntity.findOneAndRemove({'name': req.body.name}, function(err,obj) {res.send({message: "User deleted successfully!"});});
-	
+    UserEntity.findOneAndRemove({'name': req.body.name}, function(err,obj) 
+    {res.send({message: "User deleted successfully!"});});
 };
