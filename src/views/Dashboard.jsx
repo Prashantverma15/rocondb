@@ -66,7 +66,7 @@ class Dashboard extends Component {
 
   func(){
     console.log('in the leader');
-    Axios.get("http://192.168.43.151:3000/getUsers")
+    Axios.get("http://104.211.201.12:3000/getUsers")
     .then(res=>{
       for(var i=0;i<10;i++){
           var user = "user";
@@ -84,7 +84,7 @@ class Dashboard extends Component {
     this.setState({
       name:sessionStorage.getItem("user"),
     },function(v){
-    axios.post("http://192.168.43.151:3000/getUserProfile",this.state)
+    axios.post("http://104.211.201.12:3000/getUserProfile",this.state)
     .then(res=>{
       console.log(res.data.walletBalance);
       this.setState({
@@ -95,7 +95,7 @@ class Dashboard extends Component {
   }}
 
   componentDidMount(){
-    axios.post("http://192.168.43.151:3000/getTransactions",
+    axios.post("http://104.211.201.12:3000/getTransactions",
     { "_id": "5d9e4fe8c91666199cbca4be" }
     ).then(res=>{
       for(var i=0;i<3;i++){
@@ -142,7 +142,7 @@ class Dashboard extends Component {
     this.setState({
       name:sessionStorage.getItem("user"),
     },function(v){
-      axios.post("http://192.168.43.151:3000/getUserProfile",this.state)
+      axios.post("http://104.211.201.12:3000/getUserProfile",this.state)
     .then(res=>{
       console.log(res.data.walletBalance);
       this.setState({
