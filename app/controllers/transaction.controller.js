@@ -12,15 +12,15 @@ exports.create = (req, res) => {
     }
 
     var transact = new Transaction({
-        fromUser: req.body.fromUser,
-        toUser: req.body.toUser,
+        fromUser: new mongoose.Types.ObjectId(req.body.fromUser),
+        toUser: new mongoose.Types.ObjectId(req.body.toUser),
         amount: req.body.amount,
         description: req.body.description
     });
 
     var balanceDebited;
     var balanceCredited
-    UserEntity.findOne({_id: req.body.fromUser}, 
+    UserEntity.findById(req.body.fromUser, 
         function(err,userObj) {
             if(err) { return; }
             // console.log(userObj.walletBalance);
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
                     if(err) { return; }
                 });
         });
-    UserEntity.findOne({_id: req.body.toUser}, 
+    UserEntity.findById(req.body.toUser, 
         function(err,userObj) {
             if(err) { return; }
             // console.log(userObj.walletBalance);
