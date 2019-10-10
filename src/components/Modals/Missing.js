@@ -15,7 +15,7 @@ const handleAddCO2 = (e) =>{
         additionalCarbon = ((document.getElementById("units").value)%20 + 1 ) * 0.010;
     }
 
-    Axios.post("http://104.211.201.12:3000/newTransaction",
+    Axios.post("http://192.168.43.151:3000/newTransaction",
     { "fromUser":"5d9e4fe8c91666199cbca4be", "toUser": "5d9deabb6d99342be48160fe", "amount": additionalCarbon }
     )
 }

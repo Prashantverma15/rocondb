@@ -49,8 +49,11 @@ class NewComponent extends Component{
               <div id="a">
                 <div className="circle-ripple" />
               </div>
+              
               <div className="row">
+                
                 <div className="col-md-6 col-sm-6">
+                <img src={require('../assets/img/rocon-white.png')} style={{alignSelf:'center'}}/>
                   <h1 className="heading-left">For Continue Please Login</h1>
                 </div>
                 <div className="col-sm-6 col-md-6">

@@ -34,13 +34,7 @@ const dashboardRoutes = [
   //   component: Typography,
   //   layout: "/admin"
   // },
-  {
-    path: "/icons",
-    name: "Contribution",
-    icon: "pe-7s-science",
-    component: Icons,
-    layout: "/admin"
-  },
+  
   {
     path: "/maps",
     name: "Public Blogs",

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Alert } from "react-bootstrap";
-
+import {UserCard}  from "components/UserCard/UserCard.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
 
 class Notifications extends Component {
   render() {
     return (
       <div className="content">
-        <Grid fluid>
+        {/* <Grid fluid>
           <div className="card">
             <div className="header">
               <h4 className="title">Notifications</h4>
@@ -177,7 +177,30 @@ class Notifications extends Component {
               </div>
             </div>
           </div>
-        </Grid>
+        </Grid> */}
+        <UserCard
+                bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+                name="Sahil Kumar"
+                userName="sahil.kumar@gmail.com"
+                description={
+                  <span>
+                    <b> 9599420788 </b>
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple>
+                      <i className="fa fa-facebook-square" href="www.facebook.com" />
+                    </Button>
+                    <Button simple>
+                      <i className="fa fa-twitter" />
+                    </Button>
+                    <Button simple>
+                      <i className="fa fa-google-plus-square" />
+                    </Button>
+                  </div>
+                }
+              />
       </div>
     );
   }

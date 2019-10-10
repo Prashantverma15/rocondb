@@ -43,12 +43,13 @@ class Sidebar extends Component {
               <img src={logo} alt="logo_image" />
             </div> */}
           {/* </a> */}
-          <a
+          <img src={require("../../assets/img/rocon-white.png")} style={{size:'50px'}}/>
+          {/* <a
             href="#"
             className="simple-text logo-normal" 
            style={{textAlign:'center'}}>
-               Creative Tim
-          </a>
+               RO=C=N
+          </a> */}
         </div>
         <div className="sidebar-wrapper" style ={{colorText:'white',backgroundColor: 'rgb(53, 54, 56)'}}>
           <ul className="nav" >

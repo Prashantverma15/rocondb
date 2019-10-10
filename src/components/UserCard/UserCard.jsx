@@ -7,6 +7,7 @@ export class UserCard extends Component {
         <div className="image">
           <img src={this.props.bgImage} alt="..." />
         </div>
+        <br/><br/><br/>
         <div className="content">
           <div className="author">
             <a href="#pablo">
