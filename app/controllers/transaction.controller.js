@@ -12,8 +12,8 @@ exports.create = (req, res) => {
     }
 
     var transact = new Transaction({
-        fromUser: req.body.fromUser,
-        toUser: req.body.toUser,
+        fromUser: mongoose.Types.ObjectId(req.body.fromUser),
+        toUser: mongoose.Types.ObjectId(req.body.toUser),
         amount: req.body.amount,
         description: req.body.description
     });
