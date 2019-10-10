@@ -12,8 +12,7 @@ class TableList extends Component {
           <Row>
             <Col md={12}>
               <Card
-                title="Striped Table with Hover"
-                category="Here is a subtitle for this table"
+                title="Trading Transactions"
                 ctTableFullWidth
                 ctTableResponsive
                 content={
@@ -41,7 +40,7 @@ class TableList extends Component {
               />
             </Col>
 
-            <Col md={12}>
+            {/* <Col md={12}>
               <Card
                 plain
                 title="Striped Table with Hover"
@@ -71,7 +70,7 @@ class TableList extends Component {
                   </Table>
                 }
               />
-            </Col>
+            </Col> */}
           </Row>
         </Grid>
       </div>

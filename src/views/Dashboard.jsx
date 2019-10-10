@@ -39,7 +39,7 @@ class Dashboard extends Component {
     .then(res=>{
       console.log(res.data.walletBalance);
       this.setState({
-        balance: '$'+res.data.walletBalance,
+        balance: '$'+(Math.floor(res.data.walletBalance*1000) /1000),
       })
     })
   })
@@ -61,11 +61,11 @@ class Dashboard extends Component {
     this.setState({
       name:sessionStorage.getItem("user"),
     },function(v){
-      axios.post("http://192.168.43.151:3000/getUserProfile",this.state)
+      axios.post("http://104.211.201.12:3000/getUserProfile",this.state)
     .then(res=>{
       console.log(res.data.walletBalance);
       this.setState({
-        balance: '$'+res.data.walletBalance,
+        balance: '$'+(Math.floor(res.data.walletBalance*1000) /1000),
       })
     })
     });
@@ -121,13 +121,25 @@ class Dashboard extends Component {
             <Col md={6}>
             
             <Card
-              bigIcon={<i className="pe-7s-crown "/>}
-              statsText="Top Savings"
-              statsValue="$1,345"
-              
-            >
-             
-              </Card>
+                id="chartActivity"
+                title="2014 Sales"
+                category="All products including Taxes"
+                stats="Data information certified"
+                statsIcon="fa fa-check"
+                content={
+                  <div className="ct-chart">
+                    <ChartistGraph
+                      data={dataBar}
+                      type="Bar"
+                      options={optionsBar}
+                      responsiveOptions={responsiveBar}
+                    />
+                  </div>
+                }
+                legend={
+                  <div className="legend">{this.createLegend(legendBar)}</div>
+                }
+              />
              
           </Col>
             

@@ -244,14 +244,14 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Name", "Salary", "Country", "City"];
+const thArray = ["ID", "From User", "To User", "Amount($)", "Date","Time"];
 const tdArray = [
-  ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-  ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-  ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-  ["4", "Philip Chaney", "$38,735", "Korea, South", "Overland Park"],
-  ["5", "Doris Greene", "$63,542", "Malawi", "Feldkirchen in Kärnten"],
-  ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+  ["1", "Sahil", "Rishabh", "3", "2019-10-10","00:53:00"],
+  ["2", "Sahil", "Karan", "5", "2019-10-09","09:53:00"],
+  ["3", "Sahil", "Rahul", "8", "2019-10-09","08:50:00"],
+  ["4", "Sahil", "Muskan", "2", "2019-10-07","10:51:00"],
+  ["5", "Sahil", "Rama", "6", "2019-10-06","00:00:00"],
+  ["6", "Sahil", "Kunal", "5", "2019-10-05","00:34:00"]
 ];
 
 //
