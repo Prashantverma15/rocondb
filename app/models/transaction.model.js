@@ -3,10 +3,10 @@ const userEntity = require('./userEntity.model.js');
 
 const TransactionSchema = mongoose.Schema({
     fromUser: [
-        {type: mongoose.Schema.Types.ObjectId, ref: userEntity}
+        {formType: mongoose.Schema.Types.ObjectId, ref: userEntity}
     ],
     toUser: [
-        {type: mongoose.Schema.Types.ObjectId, ref: userEntity}
+        {formType: mongoose.Schema.Types.ObjectId, ref: userEntity}
     ],
     amount: Number,
     description: String
