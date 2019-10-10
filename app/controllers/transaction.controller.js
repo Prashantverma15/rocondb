@@ -12,30 +12,30 @@ exports.create = (req, res) => {
     }
 
     var transact = new Transaction({
-        fromUser: mongoose.Types.ObjectId(req.body.fromUser),
-        toUser: mongoose.Types.ObjectId(req.body.toUser),
+        fromUser: req.body.fromUser,
+        toUser: req.body.toUser,
         amount: req.body.amount,
         description: req.body.description
     });
 
     var balanceDebited;
     var balanceCredited
-    UserEntity.findOne({_id: mongoose.Types.ObjectId(req.body.fromUser)}, 
+    UserEntity.findOne({_id: req.body.fromUser}, 
         function(err,userObj) {
             if(err) { return; }
             // console.log(userObj.walletBalance);
             balanceDebited = userObj.walletBalance - req.body.amount;
-            UserEntity.findOneAndUpdate({_id: mongoose.Types.ObjectId(req.body.fromUser)}, { walletBalance: balanceDebited }, 
+            UserEntity.findOneAndUpdate({_id: req.body.fromUser}, { walletBalance: balanceDebited }, 
                 function(err,userObj) {
                     if(err) { return; }
                 });
         });
-    UserEntity.findOne({_id: mongoose.Types.ObjectId(req.body.toUser)}, 
+    UserEntity.findOne({_id: req.body.toUser}, 
         function(err,userObj) {
             if(err) { return; }
             // console.log(userObj.walletBalance);
             balanceCredited = userObj.walletBalance + req.body.amount;
-            UserEntity.findOneAndUpdate({_id: mongoose.Types.ObjectId(req.body.toUser)}, { walletBalance: balanceCredited }, 
+            UserEntity.findOneAndUpdate({_id: req.body.toUser}, { walletBalance: balanceCredited }, 
                 function(err,userObj) {
                     if(err) { return; }
                 });
