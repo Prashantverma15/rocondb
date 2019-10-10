@@ -16,6 +16,23 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import avatar from "assets/img/faces/face-3.jpg";
 
 class UserProfile extends Component {
+  constructor(){
+    super();
+
+    this.state={
+      description:"Save what saves us"
+    }
+
+    this.handleChange=this.handleChange.bind(this);
+  }
+
+  handleChange(event){
+    console.log("hello");
+    this.setState({
+      description:event.target.value
+    })
+  }
+
   render() {
     return (
       <div className="content">
@@ -23,7 +40,7 @@ class UserProfile extends Component {
           <Row>
             <Col md={8}>
               <Card
-                title="Edit Profile"
+                title="Profile"
                 content={
                   <form>
                     <FormInputs
@@ -34,7 +51,7 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Company",
-                          defaultValue: "Creative Code Inc.",
+                          defaultValue: "Deutsche Bank",
                           disabled: true
                         },
                         {
@@ -42,15 +59,19 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Username",
-                          defaultValue: "michael23"
+                          defaultValue: "s_kumar",
+                          disabled: true
                         },
                         {
                           label: "Email address",
                           type: "email",
                           bsClass: "form-control",
-                          placeholder: "Email"
+                          placeholder: "Email",
+                          defaultValue: "Sahil0707@gmail.com",
+                          disabled: true
                         }
                       ]}
+                     handleChange={this.handleparent}
                     />
                     <FormInputs
                       ncols={["col-md-6", "col-md-6"]}
@@ -60,14 +81,16 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "First name",
-                          defaultValue: "Mike"
+                          defaultValue: "Sahil",
+                          disabled: true
                         },
                         {
                           label: "Last name",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Last name",
-                          defaultValue: "Andrew"
+                          defaultValue: "Kumar",
+                          disabled: true
                         }
                       ]}
                     />
@@ -80,7 +103,8 @@ class UserProfile extends Component {
                           bsClass: "form-control",
                           placeholder: "Home Adress",
                           defaultValue:
-                            "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                            "Tower 5, Deutsche bank, Magarpatta City",
+                            disabled: true
                         }
                       ]}
                     />
@@ -92,20 +116,24 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "City",
-                          defaultValue: "Mike"
+                          defaultValue: "Pune",
+                          disabled: true
                         },
                         {
                           label: "Country",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Country",
-                          defaultValue: "Andrew"
+                          defaultValue: "India",
+                          disabled: true
                         },
                         {
                           label: "Postal Code",
                           type: "number",
                           bsClass: "form-control",
-                          placeholder: "ZIP Code"
+                          placeholder: "ZIP Code",
+                          defaultValue: "112043",
+                          disabled: true
                         }
                       ]}
                     />
@@ -119,14 +147,15 @@ class UserProfile extends Component {
                             componentClass="textarea"
                             bsClass="form-control"
                             placeholder="Here can be your description"
-                            defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
+                            defaultValue="Save what saves us" 
+                            onChange={this.handleChange}
                           />
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button bsStyle="info" pullRight fill type="submit">
+                    {/* <Button bsStyle="info" pullRight fill type="submit">
                       Update Profile
-                    </Button>
+                    </Button> */}
                     <div className="clearfix" />
                   </form>
                 }
@@ -136,21 +165,17 @@ class UserProfile extends Component {
               <UserCard
                 bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
                 avatar={avatar}
-                name="Mike Andrew"
-                userName="michael24"
+                name="Sahil Kumar"
+                userName="s_kumar"
                 description={
                   <span>
-                    "Lamborghini Mercy
-                    <br />
-                    Your chick she so thirsty
-                    <br />
-                    I'm in that two seat Lambo"
+                    {this.state.description}
                   </span>
                 }
                 socials={
                   <div>
                     <Button simple>
-                      <i className="fa fa-facebook-square" />
+                      <i className="fa fa-facebook-square" href="www.facebook.com" />
                     </Button>
                     <Button simple>
                       <i className="fa fa-twitter" />

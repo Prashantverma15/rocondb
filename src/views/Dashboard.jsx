@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChartistGraph from "react-chartist";
 import { Grid, Row, Col } from "react-bootstrap";
+import axios from 'axios';
 
 import { Card } from "components/Card/Card.jsx";
 import { StatsCard } from "components/StatsCard/StatsCard.jsx";
@@ -19,6 +20,31 @@ import {
 } from "variables/Variables.jsx";
 
 class Dashboard extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      balance: '$'+'0',
+      name: '',
+    }
+    this.refreshMyWallet = this.refreshMyWallet.bind(this);
+  }
+
+  componentWillMount(){
+    if(sessionStorage.getItem("user") !== undefined){
+    this.setState({
+      name:sessionStorage.getItem("user"),
+    },function(v){
+    axios.post("http://192.168.43.151:3000/getUserProfile",this.state)
+    .then(res=>{
+      console.log(res.data.walletBalance);
+      this.setState({
+        balance: '$'+res.data.walletBalance,
+      })
+    })
+  })
+  }}
+
   createLegend(json) {
     var legend = [];
     for (var i = 0; i < json["names"].length; i++) {
@@ -29,6 +55,23 @@ class Dashboard extends Component {
     }
     return legend;
   }
+
+  refreshMyWallet(){
+    if(sessionStorage.getItem("user")){
+    this.setState({
+      name:sessionStorage.getItem("user"),
+    },function(v){
+      axios.post("http://192.168.43.151:3000/getUserProfile",this.state)
+    .then(res=>{
+      console.log(res.data.walletBalance);
+      this.setState({
+        balance: '$'+res.data.walletBalance,
+      })
+    })
+    });
+    
+  }}
+
   render() {
     return (
       <div className="content">
@@ -49,27 +92,9 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-wallet " style={{float:'left',color:'green'}}/>}
                 statsText="CO2 Balance"
-                statsValue="$1,345"
-                isButton = 'true'
+                statsValue = {this.state.balance}
+                click={this.refreshMyWallet}
                 
-              >
-                <div className="row" style={{padding:'0.5rem'}}>
-              
-              <button class= "btn btn-danger" style={{marginLeft:'10px'}}>Add CO<span style={{}}>2</span> </button>
-              <button class= "btn btn-info" style={{marginLeft:'80px'}}>Missing CO2 </button>
-              <button class= "btn btn-success" style={{marginLeft:'90px'}}>Refresh </button>
-              </div>
-               
-                </StatsCard>
-               
-            </Col>
-            <Col lg={6} sm={6}>
-            
-              <StatsCard
-                bigIcon={<i className="pe-7s-crown "/>}
-                statsText="Top Savings"
-                statsValue="$1,345"
-                isButton="false"
               >
                
                 </StatsCard>
@@ -93,6 +118,18 @@ class Dashboard extends Component {
                 statsIconText="Updated now"
               />
             </Col> */}
+            <Col md={6}>
+            
+            <Card
+              bigIcon={<i className="pe-7s-crown "/>}
+              statsText="Top Savings"
+              statsValue="$1,345"
+              
+            >
+             
+              </Card>
+             
+          </Col>
             
           </Row>
           <Row>
@@ -137,9 +174,11 @@ class Dashboard extends Component {
                 }
               />
             </Col> */}
+            
           </Row>
 
           <Row>
+            
             <Col md={6}>
               <Card
                 id="chartActivity"

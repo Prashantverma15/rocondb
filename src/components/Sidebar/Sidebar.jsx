@@ -72,7 +72,7 @@ class Sidebar extends Component {
                       activeClassName="active"
                     >
                       <i className={prop.icon} />
-                      <p style={{color:'white;'}}>{prop.name}</p>
+                      <p style={{color:'white'}}>{prop.name}</p>
                     </NavLink>
                   </li>
                 );
